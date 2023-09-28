@@ -1,0 +1,19 @@
+{
+  "name": "nala-report",
+  "version": "1.0.0",
+  "description": "reporting poc",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.7.1"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.38.1",
+    "@axe-core/playwright": "^4.7.0",
+    "axe-html-reporter": "^2.2.3",
+    "axios": "^1.3.4",
+    "js-yaml": "^4.1.0"
+  }
+}
