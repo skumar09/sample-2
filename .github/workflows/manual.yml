@@ -23,7 +23,7 @@ jobs:
       - name: Set permissions
         run: chmod +x ./run.sh
       - name: Run Test ${{ inputs.platform }}
-        uses: run.sh
+        uses: ./run.sh
         env:
           labels: ${{ inputs.tags }}
       - name: Persist JSON Artifact
