@@ -1,33 +1,27 @@
-name: Run Test Manually
-
+name: Playwright Tests
 on:
-  workflow_dispatch:
-    inputs:
-      tags:
-        description: 'Test scenario tags, if empty all tests will run. i.e., @marquee'
-        required: false
-        type: string
-      platform:
-        description: 'Platform to run tests on; select one, options: [ubuntu-latest, windows-latest, macos-latest]'
-        required: true
-        type: string
-
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
 jobs:
-  action:
-    name: Running tests
-    runs-on: ${{ inputs.platform }}
-
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-      - name: Run Test ${{ inputs.platform }}
-        uses: ./run.sh
-        env:
-          labels: ${{ inputs.tags }}
-      - name: Persist JSON Artifact
-        uses: actions/upload-artifact@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: xx-results
-          path: xx-results.json
+          name: playwright-report
+          path: playwright-report/
           retention-days: 30
