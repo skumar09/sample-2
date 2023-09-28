@@ -1,0 +1,37 @@
+name: Run Test Manually
+
+on:
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Test scenario tags, if empty all tests will run. i.e., @marquee'
+        required: false
+        type: string
+      platform:
+        description: 'Platform to run tests on; select one, options: [ubuntu-latest, windows-latest, macos-latest]'
+        required: true
+        type: string
+
+jobs:
+  action:
+    name: Running tests
+    runs-on: ${{ inputs.platform }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Set permissions
+        run: chmod +x ./path/to/run.sh
+      - name: Run Test ${{ inputs.platform }}
+        uses: ./
+        env:
+          labels: ${{ inputs.tags }}
+          IMS_EMAIL: ${{ secrets.IMS_EMAIL }}
+          IMS_PASS: ${{ secrets.IMS_PASS }}
+      - name: Persist JSON Artifact
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: nala-results
+          path: nala-results.json
+          retention-days: 30
