@@ -23,15 +23,13 @@ jobs:
       - name: Set permissions
         run: chmod +x ./run.sh
       - name: Run Test ${{ inputs.platform }}
-        uses: ./
+        uses: ./run.sh
         env:
           labels: ${{ inputs.tags }}
-          IMS_EMAIL: ${{ secrets.IMS_EMAIL }}
-          IMS_PASS: ${{ secrets.IMS_PASS }}
       - name: Persist JSON Artifact
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: nala-results
-          path: nala-results.json
+          name: xx-results
+          path: xx-results.json
           retention-days: 30
