@@ -32,7 +32,7 @@ jobs:
           unzip playwright-report/playwright-report.zip -d extracted-report
         if: always()
 
-      - name: Debug: List Extracted Files
+      - name: List Extracted Files
         run: |
           ls -R extracted-report
         if: always()
