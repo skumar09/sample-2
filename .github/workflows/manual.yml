@@ -41,7 +41,8 @@ jobs:
         run: |
           git config --global user.email "santoshkumar.sn@gmail.com"
           git config --global user.name "skumar09"
-          git remote set-url origin https://skumar09@github.com/skumar09/testreport.git
+          git config --global url.https://${{ secrets.GH_PAT1 }}@github.com/.insteadOf https://github.com/
+          git remote set-url origin https://$GH_PAT1@github.com/skumar09/testreport.git
         env:
           GH_PAT1: ${{ secrets.GH_PAT1 }}
 
