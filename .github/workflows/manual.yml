@@ -32,10 +32,16 @@ jobs:
           unzip playwright-report/playwright-report.zip -d extracted-report
         if: always()
 
+      - name: Debug: List Extracted Files
+        run: ls -R extracted-report
+        if: always()
+
+
+
       - name: Configure Git
         run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
+          git config --global user.email "santoshkumar.sn@gmail.com"
+          git config --global user.name "skumar09"
 
       - name: Clone Reporting Repository
         run: |
