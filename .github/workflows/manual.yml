@@ -59,6 +59,7 @@ jobs:
       - name: Commit and Push Changes
         run: |
           cd reporting-repo
+          git remote --v
           git add .
           git commit -m "Add Playwright HTML Report"
           git push origin main 
