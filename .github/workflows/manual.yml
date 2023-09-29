@@ -43,7 +43,7 @@ jobs:
           git config --global user.name "skumar09"
           git remote set-url origin "https://$GH_PAT1@github.com/skumar09/testreport.git"
         env:
-          GH_PAT: ${{ secrets.GH_PAT1 }}
+          GH_PAT1: ${{ secrets.GH_PAT1 }}
 
 
       - name: Clone Reporting Repository
