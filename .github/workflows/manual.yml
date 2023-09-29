@@ -41,12 +41,12 @@ jobs:
         run: |
           git config --global user.email "santoshkumar.sn@gmail.com"
           git config --global user.name "skumar09"
-          git remote set-url origin git@github.com:skumar09/testreport.git
+          git remote set-url origin https://$GH_PAT1@github.com/skumar09/trep.git
         env:
           GH_PAT1: ${{ secrets.GH_PAT1 }}
 
       - name: Test Git Authentication
-        run: git ls-remote https://$GH_PAT1@github.com/skumar09/testreport.git
+        run: git ls-remote https://$GH_PAT1@github.com/skumar09/trep.git
 
       - name: Clone Reporting Repository
         run: |
