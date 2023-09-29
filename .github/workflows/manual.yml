@@ -50,7 +50,7 @@ jobs:
 
       - name: Clone Reporting Repository
         run: |
-          git clone https://github.com/skumar09/testreport.git reporting-repo
+          git clone https://github.com/skumar09/trep.git reporting-repo
         if: always()
 
       - name: Copy HTML Report to Reporting Repository
