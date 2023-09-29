@@ -33,10 +33,9 @@ jobs:
         if: always()
 
       - name: Debug: List Extracted Files
-        run: ls -R extracted-report
+        run: |
+          ls -R extracted-report
         if: always()
-
-
 
       - name: Configure Git
         run: |
