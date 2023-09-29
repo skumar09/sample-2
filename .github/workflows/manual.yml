@@ -26,20 +26,15 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-      - name: List Artifact Contents
+      - name: Downlaod Artifact Contents
         run: |
-          unzip -l playwright-report/playwright-report.zip          
-        if: always()          
+          curl -o playwright-report.zip -L https://github.com/skumar09/sample-2/suites/16684591726/artifacts/953406140
+        if: always()
 
       - name: Extract HTML Report
         run: |
           mkdir extracted-report
           unzip playwright-report.zip -d extracted-report
-        if: always()
-
-      - name: List Extracted Files
-        run: |
-          ls -R extracted-report
         if: always()
 
       - name: Configure Git
