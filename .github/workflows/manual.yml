@@ -41,7 +41,7 @@ jobs:
         run: |
           git config --global user.email "santoshkumar.sn@gmail.com"
           git config --global user.name "skumar09"
-          git remote set-url origin "https://$GH_PAT@github.com/skumar09/testreport.git"
+          git remote set-url origin "https://github.com/skumar09/testreport.git"
 
       - name: Clone Reporting Repository
         run: |
@@ -58,5 +58,5 @@ jobs:
           cd reporting-repo
           git add .
           git commit -m "Add Playwright HTML Report"
-          git push origin main  # Update 'main' to your branch name if needed
+          git push origin main 
         if: always()
