@@ -35,8 +35,6 @@ jobs:
       - name: Extract HTML Report
         run: |
           ls -R
-          mkdir extracted-report
-          unzip playwright-report.zip -d extracted-report
         if: always()
 
       - name: Configure Git
@@ -51,7 +49,7 @@ jobs:
 
       - name: Copy HTML Report to Reporting Repository
         run: |
-          cp extracted-report/*.html reporting-repo/
+          cp index.html reporting-repo/
         if: always()
 
       - name: Commit and Push Changes
