@@ -37,7 +37,7 @@ jobs:
           ls -R
         if: always()
 
-      - name: Configure Git
+      - name: Configure 1 Git
         run: |
           git config --global user.email "santoshkumar.sn@gmail.com"
           git config --global user.name "skumar09"
