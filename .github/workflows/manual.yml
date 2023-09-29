@@ -34,7 +34,7 @@ jobs:
       - name: Extract HTML Report
         run: |
           mkdir extracted-report
-          unzip playwright-report/playwright-report.zip -d extracted-report
+          unzip playwright-report.zip -d extracted-report
         if: always()
 
       - name: List Extracted Files
