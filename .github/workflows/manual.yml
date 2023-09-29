@@ -65,7 +65,6 @@ jobs:
           git remote --v
           git status
           git add .
-          git status
           git commit -m "Add Playwright HTML Report"
           git push origin main 
         if: always()
