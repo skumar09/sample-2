@@ -26,6 +26,11 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+      - name: List Artifact Contents
+        run: |
+          unzip -l playwright-report/playwright-report.zip          
+        if: always()          
+
       - name: Extract HTML Report
         run: |
           mkdir extracted-report
